@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 
+import * as dailymotion from './strategies/dailymotion'
 import * as vimeo from './strategies/vimeo'
 import * as youtube from './strategies/youtube'
 
@@ -8,6 +9,7 @@ import Loader from './components/Loader'
 import Thumbnail from './components/Thumbnail'
 
 const strategies = [
+  dailymotion,
   vimeo,
   youtube,
 ]

@@ -16,7 +16,7 @@ const Iframe = ({ loading, onLoad, url }) => {
     <iframe
       frameBorder={ 0 }
       onLoad={ onLoad }
-      src={ url }
+      src={ url + '?autoplay=1' }
       style={ styles.iframe }
     />
   )
