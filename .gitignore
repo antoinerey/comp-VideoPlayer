@@ -1,0 +1,6 @@
+# Development
+.idea
+
+# NPM
+node_modules
+npm-debug.log

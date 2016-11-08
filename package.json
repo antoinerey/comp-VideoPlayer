@@ -1,0 +1,24 @@
+{
+  "name": "comp-VideoPlayer",
+  "version": "0.0.0-semantically-release",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/antoinerey/comp-VideoPlayer",
+    "type": "git"
+  },
+  "author": "Antoine Rey <antoine.rey.38@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "semantic-release": "^4.3.5"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
