@@ -13,12 +13,19 @@
     "babel-jest": "^16.0.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
     "commitizen": "^2.8.6",
     "cz-conventional-changelog": "^1.2.0",
+    "enzyme": "^2.5.1",
+    "isomorphic-fetch": "^2.2.1",
     "jest": "^16.0.2",
+    "react": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-dom": "^15.3.2",
     "semantic-release": "^4.3.5"
   },
   "scripts": {
+    "dev": "yarn run build -- --watch",
     "prebuild": "rm -rf lib",
     "build": "babel src --out-dir lib --ignore test.js",
     "test": "jest --watch",
@@ -28,7 +35,13 @@
   "babel": {
     "presets": [
       "latest",
-      "react"
+      "react",
+      "stage-2"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
     ]
   },
   "config": {
