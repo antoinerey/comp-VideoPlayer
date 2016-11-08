@@ -8,6 +8,9 @@
   },
   "author": "Antoine Rey <antoine.rey.38@gmail.com>",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^15.3.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-jest": "^16.0.0",
