@@ -1,5 +1,5 @@
 {
-  "name": "comp-VideoPlayer",
+  "name": "@antoinerey/comp-VideoPlayer",
   "version": "0.0.0-semantically-release",
   "main": "index.js",
   "repository": {
