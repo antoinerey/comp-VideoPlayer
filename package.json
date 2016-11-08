@@ -1,7 +1,7 @@
 {
   "name": "@antoinerey/comp-VideoPlayer",
   "version": "0.0.0-semantically-release",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "url": "https://github.com/antoinerey/comp-VideoPlayer",
     "type": "git"
@@ -9,12 +9,27 @@
   "author": "Antoine Rey <antoine.rey.38@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-jest": "^16.0.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
     "commitizen": "^2.8.6",
     "cz-conventional-changelog": "^1.2.0",
+    "jest": "^16.0.2",
     "semantic-release": "^4.3.5"
   },
   "scripts": {
+    "prebuild": "rm -rf lib",
+    "build": "babel src --out-dir lib --ignore test.js",
+    "test": "jest --watch",
+    "test:single": "jest",
     "semantic-release": "semantic-release pre && npm publish --access=public && semantic-release post"
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "react"
+    ]
   },
   "config": {
     "commitizen": {

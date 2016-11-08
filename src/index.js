@@ -1,5 +1,5 @@
-module.exports = {
-  greet: function() {
+export default {
+  greet: () => {
     console.log('Hey man !')
   },
 }
