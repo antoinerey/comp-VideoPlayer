@@ -64,21 +64,28 @@ describe('Youtube strategy', () => {
 
   it('extracts the video identifier', () => {
     fixtures.forEach(url => {
-      const actual = youtube.getVideoIdentifier(url)
+      const actual = youtube.getRegex().exec(url)[1]
       expect(actual).toBe(videoId)
     })
   })
 
   it('computes the embed url', () => {
-    const actual = youtube.getEmbedUrl(videoId)
     const expected = `https://www.youtube.com/embed/${ videoId }`
-    expect(actual).toBe(expected)
+
+    fixtures.forEach(url => {
+      const actual = youtube.getEmbedUrl(url)
+      expect(actual).toBe(expected)
+    })
   })
 
   it('computes the thumbnail url', () => {
     const expected = `https://img.youtube.com/vi/${ videoId }/0.jpg`
-    return youtube.getThumbnailUrl(videoId)
-      .then(url => expect(url).toBe(expected))
+    const promises = fixtures.map(url => {
+      return youtube.getThumbnailUrl(url)
+        .then(url => expect(url).toBe(expected))
+    })
+
+    return Promise.all(promises)
   })
 
 })

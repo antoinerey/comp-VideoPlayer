@@ -20,20 +20,27 @@ describe('Dailymotion strategy', () => {
 
   it('extract the video identifier', () => {
     fixtures.forEach(url => {
-      const actual = dailymotion.getVideoIdentifier(url)
+      const actual = dailymotion.getRegex().exec(url)[1]
       expect(actual).toBe(videoId)
     })
   })
 
   it('computes the embed url', () => {
-    const actual = dailymotion.getEmbedUrl(videoId)
     const expected = `https://www.dailymotion.com/embed/video/${ videoId }`
-    expect(actual).toBe(expected)
+
+    fixtures.forEach(url => {
+      const actual = dailymotion.getEmbedUrl(url)
+      expect(actual).toBe(expected)
+    })
   })
 
   it('computes the thumbnail url', () => {
-    return dailymotion.getThumbnailUrl(videoId)
-      .then(url => expect(url).toBeTruthy())
+    const promises = fixtures.map(url => {
+      return dailymotion.getThumbnailUrl(url)
+        .then(thumbnailUrl => expect(thumbnailUrl).toBeTruthy())
+    })
+
+    return Promise.all(promises)
   })
 
 })

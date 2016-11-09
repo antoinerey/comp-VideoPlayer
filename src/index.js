@@ -38,14 +38,13 @@ class VideoPlayer extends React.Component {
 
   computeState = (props) => {
     const strategy = getStrategy(props.url)
-    const videoId = strategy.getVideoIdentifier(props.url)
 
     this.setState({
       status: 'hidden',
-      embedUrl: strategy.getEmbedUrl(videoId),
+      embedUrl: strategy.getEmbedUrl(props.url),
     })
 
-    strategy.getThumbnailUrl(videoId)
+    strategy.getThumbnailUrl(props.url)
       .then(url => this.setState({ thumbnailUrl: url }))
   }
 

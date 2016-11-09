@@ -24,20 +24,27 @@ describe('Vimeo strategy', () => {
 
   it('extract the video identifier', () => {
     fixtures.forEach(url => {
-      const actual = vimeo.getVideoIdentifier(url)
+      const actual = vimeo.getRegex().exec(url)[4]
       expect(actual).toBe(videoId)
     })
   })
 
   it('computes the embed url', () => {
-    const actual = vimeo.getEmbedUrl(videoId)
     const expected = `https://player.vimeo.com/video/${ videoId }`
-    expect(actual).toBe(expected)
+
+    fixtures.forEach(url => {
+      const actual = vimeo.getEmbedUrl(url)
+      expect(actual).toBe(expected)
+    })
   })
 
   it('computes the thumbnail url', () => {
-    return vimeo.getThumbnailUrl(videoId)
-      .then(url => expect(url).toBeTruthy())
+    const promises = fixtures.map(url => {
+      return vimeo.getThumbnailUrl(url)
+        .then(url => expect(url).toBeTruthy())
+    })
+
+    return Promise.all(promises)
   })
 
 })
