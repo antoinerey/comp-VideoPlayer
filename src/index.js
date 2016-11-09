@@ -71,6 +71,7 @@ class VideoPlayer extends React.Component {
         { this.isLoading() && <Loader/> }
         { (this.isHidden() || this.isLoading()) && (
           <Thumbnail
+            loading={ this.isLoading() }
             onClick={ this.handlePlayClick }
             url={ this.state.thumbnailUrl }
           />
