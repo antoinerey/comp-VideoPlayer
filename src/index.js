@@ -49,23 +49,32 @@ class VideoPlayer extends React.Component {
   computeState = (props) => {
     const strategy = getStrategy(props.url)
 
-    this.setState({
-      status: 'hidden',
-      embedUrl: strategy.getEmbedUrl(props.url),
-    })
+    if (strategy) {
+      this.setState({
+        status: 'hidden',
+        embedUrl: strategy.getEmbedUrl(props.url),
+      })
 
-    strategy.getThumbnailUrl(props.url)
-      .then(url => this.setState({ thumbnailUrl: url }))
+      return strategy.getThumbnailUrl(props.url)
+        .then(url => this.setState({ thumbnailUrl: url }))
+    }
+
+    this.setState({ status: 'failure' })
   }
 
   handleIframeLoad = () => this.setState({ status: 'ready' })
   handlePlayClick = () => this.setState({ status: 'loading' })
 
+  hasFailed = () => this.state.status === 'failure'
   isHidden = () => this.state.status === 'hidden'
   isLoading = () => this.state.status === 'loading'
   isReady = () => this.state.status === 'ready'
 
   render() {
+    if (this.hasFailed()) {
+      return null
+    }
+
     return (
       <div style={ styles.container }>
         { this.isLoading() && <Loader /> }
