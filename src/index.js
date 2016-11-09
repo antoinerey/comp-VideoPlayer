@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import * as dailymotion from './strategies/dailymotion'
+import * as twitch from './strategies/twitch'
 import * as vimeo from './strategies/vimeo'
 import * as youtube from './strategies/youtube'
 
@@ -10,6 +11,7 @@ import Thumbnail from './components/Thumbnail'
 
 const strategies = [
   dailymotion,
+  twitch,
   vimeo,
   youtube,
 ]
