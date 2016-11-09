@@ -58,7 +58,7 @@ class VideoPlayer extends React.Component {
       .then(url => this.setState({ thumbnailUrl: url }))
   }
 
-  handleIframeLoad = () => this.setState({ status: 'loading' })
+  handleIframeLoad = () => this.setState({ status: 'ready' })
   handlePlayClick = () => this.setState({ status: 'loading' })
 
   isHidden = () => this.state.status === 'hidden'
