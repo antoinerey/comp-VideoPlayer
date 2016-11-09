@@ -4,7 +4,7 @@ export const getRegex = () => {
 
 export const getEmbedUrl = (url) => {
   const videoId = getRegex().exec(url)[4]
-  return `https://player.vimeo.com/video/${ videoId }`
+  return `https://player.vimeo.com/video/${ videoId }?autoplay=1`
 }
 
 export const getThumbnailUrl = (url) => {

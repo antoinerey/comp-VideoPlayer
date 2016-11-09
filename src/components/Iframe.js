@@ -14,9 +14,10 @@ const Iframe = ({ loading, onLoad, url }) => {
 
   return (
     <iframe
+      allowFullScreen
       frameBorder={ 0 }
       onLoad={ onLoad }
-      src={ url + '?autoplay=1' }
+      src={ url }
       style={ styles.iframe }
     />
   )

@@ -70,7 +70,7 @@ describe('Youtube strategy', () => {
   })
 
   it('computes the embed url', () => {
-    const expected = `https://www.youtube.com/embed/${ videoId }`
+    const expected = `https://www.youtube.com/embed/${ videoId }?autoplay=1`
 
     fixtures.forEach(url => {
       const actual = youtube.getEmbedUrl(url)

@@ -30,7 +30,7 @@ describe('Vimeo strategy', () => {
   })
 
   it('computes the embed url', () => {
-    const expected = `https://player.vimeo.com/video/${ videoId }`
+    const expected = `https://player.vimeo.com/video/${ videoId }?autoplay=1`
 
     fixtures.forEach(url => {
       const actual = vimeo.getEmbedUrl(url)

@@ -26,7 +26,7 @@ describe('Dailymotion strategy', () => {
   })
 
   it('computes the embed url', () => {
-    const expected = `https://www.dailymotion.com/embed/video/${ videoId }`
+    const expected = `https://www.dailymotion.com/embed/video/${ videoId }?autoplay=1`
 
     fixtures.forEach(url => {
       const actual = dailymotion.getEmbedUrl(url)
