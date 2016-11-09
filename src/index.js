@@ -20,6 +20,14 @@ const getStrategy = (url) => {
   return strategies.find(strategy => strategy.getRegex().test(url))
 }
 
+const styles = {
+  container: {
+    position: 'relative',
+    width: '100%',
+    paddingTop: 'calc(9 / 16 * 100%)',
+  },
+}
+
 class VideoPlayer extends React.Component {
 
   state = {
@@ -59,9 +67,9 @@ class VideoPlayer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={ styles.container }>
         { this.isLoading() && <Loader/> }
-        { this.isHidden() && (
+        { (this.isHidden() || this.isLoading()) && (
           <Thumbnail
             onClick={ this.handlePlayClick }
             url={ this.state.thumbnailUrl }
