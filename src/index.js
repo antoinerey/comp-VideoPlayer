@@ -58,7 +58,7 @@ class VideoPlayer extends React.Component {
       .then(url => this.setState({ thumbnailUrl: url }))
   }
 
-  handleIframeLoad = () => this.setState({ status: 'ready' })
+  handleIframeLoad = () => this.setState({ status: 'loading' })
   handlePlayClick = () => this.setState({ status: 'loading' })
 
   isHidden = () => this.state.status === 'hidden'
@@ -68,7 +68,7 @@ class VideoPlayer extends React.Component {
   render() {
     return (
       <div style={ styles.container }>
-        { this.isLoading() && <Loader/> }
+        { this.isLoading() && <Loader /> }
         { (this.isHidden() || this.isLoading()) && (
           <Thumbnail
             loading={ this.isLoading() }

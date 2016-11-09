@@ -1,5 +1,5 @@
 import React from 'react'
-import BeatLoader from 'halogen/BeatLoader'
+import Loading from 'react-loading'
 
 const styles = {
   container: {
@@ -9,7 +9,7 @@ const styles = {
     width: '100%',
     height: '100%',
     background: 'rgba(0, 0, 0, 0.2)',
-    zIndex: 1,
+    zIndex: 9999,
   },
   inner: {
     position: 'absolute',
@@ -22,7 +22,7 @@ const styles = {
 const Loader = () => (
   <div style={ styles.container }>
     <div style={ styles.inner }>
-      <BeatLoader />
+      <Loading type={ 'bubbles' } color={ 'white' } width={ 96 } height={ 96 } />
     </div>
   </div>
 )
